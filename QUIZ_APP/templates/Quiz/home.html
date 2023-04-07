@@ -1,13 +1,17 @@
-
+<style>
+    .form-group {
+        font-size: xx-large;
+    }
+</style>
 {% extends 'Quiz/dependencies.html' %}
 
 {% block content %}
 {% load static %}
-<div class="center">
+<div class="center" style="padding-top: 62px;">
 <h1 style="text-align: center;">Welcome to DataFlair Quiz</h1>
 </div>
 
-<div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+<!-- <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div> -->
 
  <form method='post' action='' style="text-align: center;">
     {% csrf_token %}
@@ -43,11 +47,14 @@
         <br>
     </div>    
     {% endfor %}
-    <input id='timer' type='hidden' name="timer" value="">
+    <!-- <input id='timer' type='hidden' name="timer" value=""> -->
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-    {% block script %}
+  
+
+
+    <!-- {% block script %}
         <script>
 
             console.log('hello world')
@@ -62,7 +69,7 @@
                 inputtag.value = t
             },1000)
         </script>
-    {% endblock script %}
+    {% endblock script %} -->
 
 </div>
 {% endblock %}
