@@ -1,3 +1,14 @@
+<style>
+.card-columns {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: auto;
+}
+
+  </style>
 {% extends 'Quiz/dependencies.html' %}
 
 {% block content %}
@@ -6,7 +17,7 @@
         
     <div class="card-columns" style="padding: 10px; margin: 20px;">
         <div class="card" align="centre " style="width: 32rem; border:5px black solid">
-            <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://reputation.com/wp-content/themes/reputation/dist/images/Reputation_Logo_Horizontal_Dark.svg" style="padding: 3px;" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Score: {{score}}</h5>
 
