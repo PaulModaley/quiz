@@ -7,7 +7,6 @@ from django.http import HttpResponse
 # Create your views here.
 def home(request):
     if request.method == 'POST':
-        print(request.POST)
         questions=QuesModel.objects.all()
         score=0
         wrong=0
@@ -15,22 +14,29 @@ def home(request):
         total=0
         for q in questions:
             total+=1
-            print(request.POST.get(q.question))
-            print(q.ans)
-            print()
             if q.ans ==  request.POST.get(q.question):
                 score+=10
                 correct+=1
             else:
                 wrong+=1
         percent = score/(total*10) *100
+        if percent >= 90:
+            message = "Congratulations, you have earned a gold badge!"
+        elif percent >= 75:
+            message = "Congratulations, you have earned a silver badge!"
+        elif percent >= 50:
+            message = "Congratulations, you have earned a bronze badge!"
+        else:
+            message = "Sorry, your score is too low to qualify for any rewards."
+
         context = {
             'score':score,
             'time': request.POST.get('timer'),
             'correct':correct,
             'wrong':wrong,
             'percent':percent,
-            'total':total
+            'total':total,
+            'message': message # add the message to the context
         }
         return render(request,'Quiz/result.html',context)
     else:
@@ -39,6 +45,7 @@ def home(request):
             'questions':questions
         }
         return render(request,'Quiz/home.html',context)
+
 
 def addQuestion(request):    
     if request.user.is_staff:
@@ -85,4 +92,5 @@ def loginPage(request):
 def logoutPage(request):
     logout(request)
     return redirect('/')
+
 
