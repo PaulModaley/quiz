@@ -3,12 +3,13 @@
 
 {% block content %}
 {% load static %}
-<div class="container ">
-<h1>Welcome to DataFlair Quiz</h1>
+<div class="center">
+<h1 style="text-align: center;">Welcome to DataFlair Quiz</h1>
+</div>
 
 <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
 
- <form method='post' action=''>
+ <form method='post' action='' style="text-align: center;">
     {% csrf_token %}
     {% for q  in questions%}
     <div class="form-group">
