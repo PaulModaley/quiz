@@ -40,7 +40,7 @@ def home(request):
         }
         return render(request,'Quiz/result.html',context)
     else:
-        questions=QuesModel.objects.all()
+        questions=Question.objects.all()
         context = {
             'questions':questions
         }
